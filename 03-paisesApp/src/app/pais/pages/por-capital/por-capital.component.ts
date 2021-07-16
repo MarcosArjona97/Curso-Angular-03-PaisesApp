@@ -28,9 +28,5 @@ export class PorCapitalComponent {
       });
   }
 
-  sugerencias(event: string) {
-    this.hayError = false;
-  }
-
 
 }

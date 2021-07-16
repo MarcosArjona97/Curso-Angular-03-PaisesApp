@@ -13,9 +13,27 @@
 
 </div>
 
+<ul class="list-group" *ngIf="mostrarSugerencias">
+  <li class="list-group-item list-group-item-action" *ngFor="let p of paisesSugeridos">
+    <a
+      class="nav-link"
+      [routerLink]="['/pais', p.alpha2Code]">
+      {{ p.name }}
+    </a>
+  </li>
+  <li
+    class="list-group-item list-group-item-action"
+    (click)="buscar( query )">
+    <a class="nav-llink">
+      Buscar "{{ query }}"
+    </a>
+  </li>
+
+</ul>
+
 <hr>
 
-<div class="alert alert-danger" *ngIf="hayError">
+<div class="alert alert-danger animate__animated animate__shakeX" *ngIf="hayError" >
   No se encontró nada con el término {{ query }}
 </div>
 

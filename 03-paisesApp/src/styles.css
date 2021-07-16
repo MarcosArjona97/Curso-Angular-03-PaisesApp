@@ -2,3 +2,15 @@
 .small-flag {
   width: 50px;
 }
+
+.country-flag {
+  width: 200px;
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+body {
+  overflow: hidden;
+}
