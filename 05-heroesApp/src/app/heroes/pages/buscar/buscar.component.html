@@ -1,0 +1,48 @@
+<div fxLayout="column">
+
+  <div>
+    <h1>Buscador de Héroes</h1>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div fxLayout="column">
+    <h3>Buscador</h3>
+
+    <mat-form-field>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               name="heroe"
+               [(ngModel)]="query"
+               [matAutocomplete]="auto"
+               (input)="buscando()">
+        <mat-autocomplete #auto="matAutocomplete"
+                          (optionSelected)="opcionSeleccionada( $event )">
+
+          <mat-option
+            *ngFor="let heroe of heroes"
+            [value]="heroe">
+
+            {{  heroe.superhero }}
+
+          </mat-option>
+
+          <mat-option
+            *ngIf="heroes.length < 1 && query.trim().length > 0"
+            value="">
+            No se encontró nada con el término {{ query }}
+          </mat-option>
+
+        </mat-autocomplete>
+      </mat-form-field>
+
+  </div>
+
+  <div *ngIf="heroeSeleccionado">
+    <app-heroe-tarjeta [heroe]="heroeSeleccionado"></app-heroe-tarjeta>
+  </div>
+
+</div>
+
+
